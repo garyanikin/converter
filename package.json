@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "pretty": "^2.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "scripts": {
+    "build": "webpack -p"
+  },
+  "name": "converter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
