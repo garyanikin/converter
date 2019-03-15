@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
     entry: './converter.js',
     output: {
-        filename: 'bundle.js',
+        filename: './docs/bundle.js',
         path: path.resolve(__dirname, '.')
     }
 };
