@@ -7,8 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Converter</title>
     <script src="bundle.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<script>
+    function onInput(e) {
+        var current = e.currentTarget;
+        var input = current.value;
 
+        Converter(input, function (output) {
+            document.getElementById('output').value = output;
+        });
+    }
+</script>
+<div class="container">
+    <h1 class="mt-3">Конвертер</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="input">Старая версия</label>
+                <textarea id="input" class="form-control" rows="25" oninput="onInput(event);"></textarea>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="input">Отформатированный текст</label>
+                <textarea id="output" class="form-control" rows="25"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

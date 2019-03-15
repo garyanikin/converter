@@ -1,9 +1,8 @@
 import cheerio from 'cheerio';
 import pretty from 'pretty';
 
-console.log(window);
-
 const Converter = function (input, output) {
+    console.log('Converter');
     // Читаем input.html
     const $ = cheerio.load(input, {decodeEntities: false});
 
@@ -53,9 +52,13 @@ const Converter = function (input, output) {
 // Carousel
 
 // Links liderlife -> localhost
+    let formatted = $('body .info').html();
+
+    // formatted = formatted.replace(/\/\/liderlife.ru\/engine\/images/g, 'http://old.liderlife.ru/engine/images');
+    formatted = formatted.replace(/https:\/\/liderlife.ru\//g, '/').replace(/http:\/\/liderlife.ru\//g, '/');
 
 //beautifier
-    const beutify = pretty($('body .info').html());
+    const beutify = pretty(formatted);
 
 // Сохраняем результат
     output(beutify);
@@ -64,13 +67,4 @@ const Converter = function (input, output) {
 //For web
 window.Converter = Converter;
 
-// For node
-// Converter(fs.readFileSync('input.html', 'utf8'), function (beutify) {
-//     fs.writeFile('output.html', beutify, 'utf-8', function (err) {
-//         if (err) {
-//             return console.log(err);
-//         }
-//
-//         console.log('Output saved');
-//     });
-// });
+export default Converter;
